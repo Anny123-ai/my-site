@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python 基础课程</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="course-header">
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回首页</a>
+            <h1>🐍 Python 基础课程</h1>
+            <p>从零基础开始，系统学习 Python 编程</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="lessons-section">
+            <h2>课程目录</h2>
+            <div class="lesson-grid">
+                <div class="lesson-card" onclick="showLesson(0)">
+                    <div class="lesson-number">1</div>
+                    <h4>Python 介绍与安装</h4>
+                    <p>了解 Python 是什么，以及如何安装开发环境</p>
+                </div>
+                <div class="lesson-card" onclick="showLesson(1)">
+                    <div class="lesson-number">2</div>
+                    <h4>变量与数据类型</h4>
+                    <p>学习变量的定义和 Python 的基本数据类型</p>
+                </div>
+                <div class="lesson-card" onclick="showLesson(2)">
+                    <div class="lesson-number">3</div>
+                    <h4>运算符与表达式</h4>
+                    <p>掌握算术、比较、逻辑等运算符的使用</p>
+                </div>
+                <div class="lesson-card" onclick="showLesson(3)">
+                    <div class="lesson-number">4</div>
+                    <h4>条件语句</h4>
+                    <p>学习 if、elif、else 语句的使用</p>
+                </div>
+                <div class="lesson-card" onclick="showLesson(4)">
+                    <div class="lesson-number">5</div>
+                    <h4>循环语句</h4>
+                    <p>掌握 for 和 while 循环的使用方法</p>
+                </div>
+                <div class="lesson-card" onclick="showLesson(5)">
+                    <div class="lesson-number">6</div>
+                    <h4>函数</h4>
+                    <p>学习如何定义和使用函数</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="lesson-detail-section" class="hidden">
+            <div class="lesson-detail">
+                <a href="#" onclick="showLessonsList(); return false;" class="back-link">← 返回目录</a>
+                <h3 id="lesson-title"></h3>
+                <div id="lesson-content" class="lesson-content"></div>
+                <div class="lesson-nav">
+                    <button id="prev-btn" class="btn" onclick="prevLesson()">上一课</button>
+                    <button id="next-btn" class="btn" onclick="nextLesson()">下一课</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 我的学习主页. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="python-course.js"></script>
+</body>
+</html>
