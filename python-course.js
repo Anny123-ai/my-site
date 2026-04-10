@@ -290,6 +290,21 @@ except CustomError as e:
 
 let currentLessonIndex = -1;
 
+// 从 URL 参数加载课程
+function loadLessonFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const lessonParam = urlParams.get('lesson');
+    if (lessonParam && !isNaN(lessonParam)) {
+        const lessonIndex = parseInt(lessonParam);
+        if (lessonIndex >= 0 && lessonIndex < lessons.length) {
+            showLesson(lessonIndex);
+        }
+    }
+}
+
+// 页面加载时执行
+window.onload = loadLessonFromUrl;
+
 function showLesson(index) {
     currentLessonIndex = index;
     const lesson = lessons[index];

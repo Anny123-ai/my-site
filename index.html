@@ -3,31 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的学习主页</title>
+    <title>Python 基础课程 - 学习站点</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>欢迎来到我的学习主页</h1>
-            <p>记录学习点滴，持续成长进步</p>
-        </div>
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <h1>🐍 Python 基础课程</h1>
+                </div>
+                <div class="navbar-menu">
+                    <ul>
+                        <li><a href="index.html" class="active">首页</a></li>
+                        <li><a href="#courses">课程内容</a></li>
+                        <li><a href="#about">关于课程</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <main class="container">
-        <section class="welcome-section">
-            <h2>关于我</h2>
-            <p>这是我的个人学习主页，用于记录学习笔记和分享知识。</p>
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h2>从零开始学习 Python 编程</h2>
+                <p>掌握 Python 基础语法、数据结构、函数与模块、面向对象编程、文件操作与异常处理</p>
+                <a href="#courses" class="btn">开始学习</a>
+            </div>
         </section>
 
-        <section class="courses-section">
-            <h2>学习课程</h2>
-            <div class="course-grid">
-                <div class="course-card">
-                    <div class="course-icon">🐍</div>
-                    <h3>Python 基础课程</h3>
-                    <p>从零基础学习 Python 编程，掌握核心语法和常用库</p>
-                    <a href="python-course.html" class="btn">开始学习</a>
+        <section id="courses" class="courses-section">
+            <div class="container">
+                <h2>课程目录</h2>
+                <div class="lesson-grid">
+                    <div class="lesson-card" onclick="window.location.href='python-course.html?lesson=0'">
+                        <div class="lesson-number">1</div>
+                        <h4>Python 介绍与安装</h4>
+                        <p>了解 Python 是什么，以及如何安装开发环境</p>
+                        <a href="python-course.html?lesson=0" class="btn">查看详情</a>
+                    </div>
+                    <div class="lesson-card" onclick="window.location.href='python-course.html?lesson=1'">
+                        <div class="lesson-number">2</div>
+                        <h4>Python 基础语法</h4>
+                        <p>学习变量、数据类型、运算符、条件和循环语句</p>
+                        <a href="python-course.html?lesson=1" class="btn">查看详情</a>
+                    </div>
+                    <div class="lesson-card" onclick="window.location.href='python-course.html?lesson=2'">
+                        <div class="lesson-number">3</div>
+                        <h4>数据结构</h4>
+                        <p>掌握列表、元组、字典、集合等数据结构</p>
+                        <a href="python-course.html?lesson=2" class="btn">查看详情</a>
+                    </div>
+                    <div class="lesson-card" onclick="window.location.href='python-course.html?lesson=3'">
+                        <div class="lesson-number">4</div>
+                        <h4>函数与模块</h4>
+                        <p>学习函数定义、参数传递和模块使用</p>
+                        <a href="python-course.html?lesson=3" class="btn">查看详情</a>
+                    </div>
+                    <div class="lesson-card" onclick="window.location.href='python-course.html?lesson=4'">
+                        <div class="lesson-number">5</div>
+                        <h4>面向对象编程</h4>
+                        <p>掌握类、对象、继承、封装和多态</p>
+                        <a href="python-course.html?lesson=4" class="btn">查看详情</a>
+                    </div>
+                    <div class="lesson-card" onclick="window.location.href='python-course.html?lesson=5'">
+                        <div class="lesson-number">6</div>
+                        <h4>文件操作与异常处理</h4>
+                        <p>学习文件读写操作和异常处理机制</p>
+                        <a href="python-course.html?lesson=5" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>关于本课程</h2>
+                <div class="about-content">
+                    <p>本课程旨在帮助初学者快速掌握 Python 编程的基础知识，通过系统的学习路径，从安装环境开始，逐步深入到面向对象编程和文件操作等高级主题。</p>
+                    <p>课程特点：</p>
+                    <ul>
+                        <li>适合零基础学习者</li>
+                        <li>内容全面，覆盖 Python 核心知识点</li>
+                        <li>丰富的代码示例和详细讲解</li>
+                        <li>交互式学习体验</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -35,7 +96,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 我的学习主页. All rights reserved.</p>
+            <p>&copy; 2026 Python 基础课程学习站点. All rights reserved.</p>
         </div>
     </footer>
 </body>
