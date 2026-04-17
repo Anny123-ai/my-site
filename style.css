@@ -586,12 +586,157 @@ pre {
     border-radius: 8px;
     overflow-x: auto;
     margin: 20px 0;
+    position: relative;
 }
 
 pre code {
     background: none;
     color: #e2e8f0;
     padding: 0;
+}
+
+/* 代码运行器样式 */
+.code-runner {
+    background: #f8f9fa;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin: 10px 0 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.code-runner:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.code-runner-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #f1f3f4;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.control-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.language {
+    font-size: 0.9rem;
+    color: #667eea;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.run-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.run-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
+.run-btn:active {
+    transform: translateY(0);
+}
+
+.control-right {
+    display: flex;
+    align-items: center;
+}
+
+.collapse-btn {
+    background: none;
+    border: 1px solid #d1d5db;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.collapse-btn:hover {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+}
+
+.code-runner-output {
+    padding: 16px;
+    background: white;
+    max-height: 300px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.code-runner-output.collapsed {
+    max-height: 0;
+    padding: 0 16px;
+    overflow: hidden;
+}
+
+.output-content {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.output-text {
+    background: #f3f4f6;
+    padding: 12px;
+    border-radius: 6px;
+    margin: 0;
+    white-space: pre-wrap;
+    color: #374151;
+}
+
+.loading {
+    color: #667eea;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.loading::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border: 2px solid #667eea;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.success {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.error {
+    color: #ef4444;
+    font-weight: 600;
 }
 
 .hidden {
