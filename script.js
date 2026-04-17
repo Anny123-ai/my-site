@@ -16,7 +16,7 @@ class CodeRunner {
     }
 
     createCodeRunner(pre, index) {
-        const code = pre.querySelector('code').textContent;
+        const originalCode = pre.querySelector('code').textContent;
         const runnerId = `code-runner-${index}`;
 
         // 创建运行器容器
@@ -31,6 +31,7 @@ class CodeRunner {
             <div class="control-left">
                 <span class="language">Python</span>
                 <button class="run-btn">运行</button>
+                <button class="reset-btn">重置</button>
             </div>
             <div class="control-right">
                 <button class="collapse-btn">收起</button>
@@ -52,8 +53,9 @@ class CodeRunner {
         // 保存运行器实例
         this.runners.set(runnerId, {
             container: runnerContainer,
-            code,
-            outputContainer
+            originalCode,
+            outputContainer,
+            pre
         });
 
         // 绑定事件
@@ -67,6 +69,10 @@ class CodeRunner {
         // 运行按钮
         const runBtn = runner.container.querySelector('.run-btn');
         runBtn.addEventListener('click', () => this.runCode(runnerId));
+
+        // 重置按钮
+        const resetBtn = runner.container.querySelector('.reset-btn');
+        resetBtn.addEventListener('click', () => this.resetCode(runnerId));
 
         // 收起按钮
         const collapseBtn = runner.container.querySelector('.collapse-btn');
@@ -92,8 +98,8 @@ class CodeRunner {
             window.pyodide.setStdout({ write: (text) => output += text });
             window.pyodide.setStderr({ write: (text) => output += text });
 
-            // 运行代码
-            await window.pyodide.runPythonAsync(runner.code);
+            // 运行代码（始终使用原始代码，确保示例代码不被修改）
+            await window.pyodide.runPythonAsync(runner.originalCode);
 
             // 显示输出
             outputContent.innerHTML = output ? 
@@ -101,6 +107,21 @@ class CodeRunner {
                 '<div class="success">代码执行成功，无输出</div>';
         } catch (error) {
             outputContent.innerHTML = `<div class="error">错误: ${this.escapeHtml(error.message)}</div>`;
+        }
+    }
+
+    resetCode(runnerId) {
+        const runner = this.runners.get(runnerId);
+        if (!runner) return;
+
+        // 重置输出区域
+        const outputContent = runner.outputContainer.querySelector('.output-content');
+        outputContent.innerHTML = '<div class="success">代码已重置</div>';
+
+        // 确保代码块显示原始代码
+        const codeElement = runner.pre.querySelector('code');
+        if (codeElement) {
+            codeElement.textContent = runner.originalCode;
         }
     }
 
